@@ -24,7 +24,7 @@ export default function SchedulePage() {
         <Spinner color="warning" />
       ) : (
         scheduleList.map(
-          (item) =>
+          (item:any) =>
             item.Date &&
             item.Time && (
               <ScheduleItem key={item.Game + item.Tournament} item={item} />
