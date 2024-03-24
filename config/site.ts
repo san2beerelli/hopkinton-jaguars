@@ -9,6 +9,14 @@ export const siteConfig = {
       href: "/players",
     },
     {
+      label: "Games",
+      href: "/games",
+    },
+    {
+      label: "Schedule",
+      href: "/schedule",
+    },
+    {
       label: "Fantasy Score",
       href: "/fantasy",
     },
