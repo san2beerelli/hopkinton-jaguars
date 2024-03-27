@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function ScheduleItem({ item }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" style={{width:370}}>
       <h4
         className="text-xl font-bold text-left mb-1"
         style={{ color: "#ffe500" }}

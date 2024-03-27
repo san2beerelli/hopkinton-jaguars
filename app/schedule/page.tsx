@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchSchedule } from "@/service/api";
+import { makeGet } from "@/service/api";
 import { useEffect, useState } from "react";
 
 import ScheduleItem from "@/components/schedule/scheduleItem";
@@ -12,7 +12,7 @@ export default function SchedulePage() {
   useEffect(() => {
     const getSchedule = async () => {
       setLoading(true);
-      const response = await fetchSchedule();
+      const response = await makeGet('schedule');
       setScheduleList(response);
       setLoading(false);
     };

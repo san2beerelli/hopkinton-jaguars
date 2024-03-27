@@ -1,9 +1,8 @@
-import { data } from "autoprefixer";
 
 export const dynamic = "force-dynamic";
-async function fetchSchedule() {
+async function makeGet(screen: string) {
   const res = await fetch(
-    "https://script.google.com/macros/s/AKfycbxQZL8RV3AR8lxC4HNZrGYnVBMd-nyLfzGzYCsvs9Ih5DrCj0ZrKfMD_qgPTE_UziZv7A/exec",
+    `https://script.google.com/macros/s/AKfycbyc7xic_dGL_OeVsY8mYO7UTHWoQ9dGrvO6eYZj4WxRX9bTt2PuDZkzxYaGpTOj3yj0Mg/exec?screen=${screen}`,
     {
       method: "GET",
       redirect: "follow",
@@ -21,4 +20,4 @@ async function fetchSchedule() {
   return data;
 }
 
-export { fetchSchedule };
+export { makeGet };
