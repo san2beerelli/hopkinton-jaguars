@@ -17,21 +17,23 @@ import Image from "next/image";
 const roles = {
   Batter: {
     name: "Batter",
-    icon: "/images/batsman.svg",
+    icon: "./images/batsman.svg",
   },
   Bowler: {
     name: "Bowler",
-    icon: "/images/bowler.svg",
+    icon: "./images/bowler.svg",
   },
   Allrounder: {
     name: "All-Rounder",
-    icon: "/images/all-rounder.svg",
+    icon: "./images/all-rounder.svg",
   },
   WKBatter: {
     name: "WK Keeper-Batter",
-    icon: "/images/wicket-keeper.svg",
+    icon: "./images/wicket-keeper.svg",
   },
 };
+
+const headShot = "/images/default-headshot.png";
 
 export default function PlayersPage() {
   const [playersList, setPlayersList] = useState([]);
@@ -59,7 +61,7 @@ export default function PlayersPage() {
                     <Image
                       height={20}
                       width={20}
-                      src={"/images/captain.svg"}
+                      src={"./images/captain.svg"}
                       alt="bowler"
                     />
                   ) : (
@@ -69,7 +71,7 @@ export default function PlayersPage() {
                   <Image
                     alt={item.Name}
                     height={200}
-                    src={item.Photo || "/images/default-headshot.png"}
+                    src={item.Photo || headShot}
                     width={200}
                   />
                   <Image
