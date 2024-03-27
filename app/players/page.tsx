@@ -8,7 +8,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
   Spacer,
   Spinner,
 } from "@nextui-org/react";
@@ -32,8 +31,6 @@ const roles = {
     icon: "./images/wicket-keeper.svg",
   },
 };
-
-const headShot = "/images/default-headshot.png";
 
 export default function PlayersPage() {
   const [playersList, setPlayersList] = useState([]);
@@ -67,11 +64,10 @@ export default function PlayersPage() {
                   ) : (
                     <Spacer style={{ width: 20 }} />
                   )}
-
                   <Image
                     alt={item.Name}
                     height={200}
-                    src={item.Photo || headShot}
+                    src={item.Photo}
                     width={200}
                   />
                   <Image
