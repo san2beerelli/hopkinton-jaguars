@@ -75,6 +75,7 @@ export default function PlayersPage() {
                   <Image
                     height={26}
                     width={26}
+                    //@ts-ignore
                     src={roles[item.Role].icon}
                     alt="bowler"
                   />
@@ -83,7 +84,10 @@ export default function PlayersPage() {
                   <div className="flex flex-col gap-2 items-center flex-1 border-solid border-t-1 border-t-orange-200 py-2">
                     <h4 className="font-extrabold text-center">{item.Name}</h4>
                     <h1 className="font-light text-center">
-                      {roles[item.Role].name}
+                      {
+                        //@ts-ignore
+                        roles[item.Role].name
+                      }
                     </h1>
                   </div>
                 </CardFooter>
