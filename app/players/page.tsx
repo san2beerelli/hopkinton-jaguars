@@ -27,7 +27,7 @@ const roles = {
     icon: "./images/all-rounder.svg",
   },
   WKBatter: {
-    name: "WK Keeper-Batter",
+    name: "WK-Batter",
     icon: "./images/wicket-keeper.svg",
   },
 };
