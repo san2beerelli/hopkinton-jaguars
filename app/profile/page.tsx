@@ -1,7 +1,7 @@
 //@ts-nocheck
 "use client";
 
-import SignInView from "./signIn";
+import SignInView from "@/components/signin/signIn";
 import { useApplicaiton } from "@/context/ApplicationProvider";
 
 export default function ProfilePage() {

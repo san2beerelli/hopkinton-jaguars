@@ -24,7 +24,7 @@ export const Navbar = () => {
   const { setUserProfile } = useApplicaiton();
 
   useEffect(() => {
-    const profile = JSON.parse(window.localStorage.getItem("profile") || "");
+    const profile = JSON.parse(window.localStorage.getItem("profile") || "{}");
     setUserProfile({ type: "SETUSER", userProfile: profile });
   }, [setUserProfile]);
   return (
