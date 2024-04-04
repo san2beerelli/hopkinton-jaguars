@@ -3,9 +3,9 @@
 import { makeGet } from "@/service/api";
 import { Spinner } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-export default function SessionPage() {
+export default function SigninPage() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const { push } = useRouter();
@@ -18,8 +18,8 @@ export default function SessionPage() {
         setLoading(false);
         if (response.name !== "No User Found") {
           const obj = response;
-          obj.session = session
-          window.localStorage.setItem('profile', JSON.stringify(obj))
+          obj.session = session;
+          window.localStorage.setItem("profile", JSON.stringify(obj));
           push("/profile");
         }
         console.log(response);
@@ -30,5 +30,9 @@ export default function SessionPage() {
     makeRequest();
   }, [searchParams, push]);
 
-  return <>{loading ? <Spinner color="warning" /> : null}</>;
+  return (
+    <Suspense>
+      <>{loading ? <Spinner color="warning" /> : null}</>;
+    </Suspense>
+  );
 }
