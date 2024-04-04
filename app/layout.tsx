@@ -4,8 +4,8 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { ApplicationProvider } from "@/context/ApplicationProvider";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -45,13 +45,15 @@ export default function RootLayout({
         <Providers
           themeProps={{ attribute: "class", defaultTheme: "dark", children }}
         >
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-8 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3"></footer>
-          </div>
+          <ApplicationProvider>
+            <div className="relative flex flex-col h-screen">
+              <Navbar />
+              <main className="container mx-auto max-w-7xl pt-8 px-6 flex-grow">
+                {children}
+              </main>
+              <footer className="w-full flex items-center justify-center py-3"></footer>
+            </div>
+          </ApplicationProvider>
         </Providers>
       </body>
     </html>

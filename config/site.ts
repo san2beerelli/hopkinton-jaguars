@@ -5,6 +5,10 @@ export const siteConfig = {
   description: "Hopkinton Jaguars team website",
   navItems: [
     {
+      label: "Profile",
+      href: "/profile",
+    },
+    {
       label: "Players",
       href: "/players",
     },

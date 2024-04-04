@@ -17,8 +17,16 @@ import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { useEffect } from "react";
+import { useApplicaiton } from "@/context/ApplicationProvider";
 
 export const Navbar = () => {
+  const { setUserProfile } = useApplicaiton();
+
+  useEffect(() => {
+    const profile = JSON.parse(window.localStorage.getItem("profile") || "");
+    setUserProfile({ type: "SETUSER", userProfile: profile });
+  }, [setUserProfile]);
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -58,11 +66,7 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color="foreground"
-                href={item.href}
-                size="lg"
-              >
+              <Link color="foreground" href={item.href} size="lg">
                 {item.label}
               </Link>
             </NavbarMenuItem>
