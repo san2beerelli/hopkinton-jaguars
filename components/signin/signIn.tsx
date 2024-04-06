@@ -12,7 +12,7 @@ export default function SignInView() {
   const [message, setMessage] = useState("");
   const onSubmitHandler = async () => {
     setLoading(true);
-    const response = await makeGet("profile", email);
+    const response = await makeGet({ screen: "profile", email });
     let msg = "";
     if (response[0] !== "Player Not Found") {
       msg = `Your magic delivery is on its way! Swing by your email ${response[0]} and hit the link to walk onto the pitch.`;

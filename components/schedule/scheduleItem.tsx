@@ -2,16 +2,26 @@
 import react from "react";
 import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
+import { CheckIcon } from "../CheckIcon";
+import { UnCheckIcon } from "../UnCheckIcon";
 
-export default function ScheduleItem({ item }) {
+export default function ScheduleItem({ item, onClick, availability }) {
   return (
-    <div className="flex flex-col" style={{width:370}}>
-      <h4
-        className="text-xl font-bold text-left mb-1"
-        style={{ color: "#ffe500" }}
-      >
-        {item.Tournament}
-      </h4>
+    <div
+      className="flex flex-col"
+      style={{ width: 370 }}
+      onClick={() => onClick(item)}
+    >
+      <div className="flex flex-row justify-between">
+        <h4
+          className="text-xl font-bold text-left mb-1"
+          style={{ color: "#ffe500" }}
+        >
+          {item.Tournament}
+        </h4>
+        {availability === "yes" && <CheckIcon size={18} />}
+        {availability === "no" && <UnCheckIcon size={18} />}
+      </div>
       <div className="flex">
         <Card
           style={{

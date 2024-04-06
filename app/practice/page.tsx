@@ -25,7 +25,7 @@ export default function PracticePage() {
   useEffect(() => {
     const getSchedule = async () => {
       setLoading(true);
-      const response = await makeGet("practice");
+      const response = await makeGet({ screen: "practice" });
       const filteredResponse = getFilteredResponse(response);
       //@ts-ignore
       setScheduleList(filteredResponse);

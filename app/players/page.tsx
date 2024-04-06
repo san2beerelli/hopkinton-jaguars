@@ -38,7 +38,7 @@ export default function PlayersPage() {
   useEffect(() => {
     const getPlayers = async () => {
       setLoading(true);
-      const response = await makeGet("players");
+      const response = await makeGet({ screen: "players" });
       setPlayersList(response);
       setLoading(false);
     };

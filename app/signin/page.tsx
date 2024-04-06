@@ -16,15 +16,18 @@ export default function SigninPage() {
       try {
         setLoading(true);
         const session = searchParams.get("sessionId") || "";
-        const response = await makeGet("validUser", "", session);
+        const response = await makeGet({
+          screen: "validUser",
+          sessionId: session,
+        });
         setLoading(false);
         if (response.name !== "No User Found") {
           const obj = response;
           obj.session = session;
           window.localStorage.setItem("profile", JSON.stringify(obj));
           setUserProfile({ type: "SETUSER", userProfile: obj });
-          push("/profile");
         }
+        push("/profile");
       } catch (error) {
         console.log(error);
       }
