@@ -66,6 +66,7 @@ export default function SchedulePage() {
       screen: "availability",
       name: userProfile?.userProfile?.name,
       game,
+      type: 'game',
       available: availability,
     });
     const copy = { ...playerSchedule, [game]: availability };

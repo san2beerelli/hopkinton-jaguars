@@ -7,6 +7,7 @@ type RequestObj = {
   name?: string;
   game?: string;
   available?: string;
+  type?: string;
 };
 async function makeGet(request: RequestObj) {
   let BaseUrl =
@@ -28,6 +29,9 @@ async function makeGet(request: RequestObj) {
   }
   if (request.available) {
     BaseUrl = `${BaseUrl}&available=${request.available}`;
+  }
+  if (request.type) {
+    BaseUrl = `${BaseUrl}&type=${request.type}`;
   }
 
   const res = await fetch(BaseUrl, {
