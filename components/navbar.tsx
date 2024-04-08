@@ -17,18 +17,24 @@ import { link as linkStyles } from "@nextui-org/theme";
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useApplicaiton } from "@/context/ApplicationProvider";
 
 export const Navbar = () => {
   const { setUserProfile } = useApplicaiton();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const profile = JSON.parse(window.localStorage.getItem("profile") || "{}");
     setUserProfile({ type: "SETUSER", userProfile: profile });
   }, [setUserProfile]);
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar
+      maxWidth="xl"
+      position="sticky"
+      onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -66,7 +72,12 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color="foreground" href={item.href} size="lg">
+              <Link
+                color="foreground"
+                href={item.href}
+                size="lg"
+                onPress={() => setIsMenuOpen(false)}
+              >
                 {item.label}
               </Link>
             </NavbarMenuItem>
