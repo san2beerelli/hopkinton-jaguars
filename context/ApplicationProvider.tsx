@@ -25,7 +25,6 @@ const applicationReducer = (
 ): ApplicationData => {
   switch (action.type) {
     case "SETUSER":
-      console.log(action.userProfile);
       return { ...state, userProfile: action.userProfile };
     default:
       return state;

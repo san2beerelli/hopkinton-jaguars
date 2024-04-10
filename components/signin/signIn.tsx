@@ -51,7 +51,7 @@ export default function SignInView() {
             placeholder="Enter Your Email!"
             style={{ width: 350 }}
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value.toLowerCase())}
           />
 
           <Button
