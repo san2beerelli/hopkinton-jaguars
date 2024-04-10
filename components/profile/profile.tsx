@@ -68,7 +68,7 @@ export default function ProfileView() {
               title={
                 <div className="flex items-center space-x-2">
                   <span>Games</span>
-                  {response?.gameResponseCount && (
+                  {response?.gameResponseCount !== 0 && (
                     <Chip size="sm" variant="faded" color="warning">
                       {response?.gameResponseCount}
                     </Chip>
@@ -77,7 +77,11 @@ export default function ProfileView() {
               }
             >
               <div className="flex flex-col gap-2">
-                <div className="text-sm">Games You&#39;re Enrolled In</div>
+                <div className="text-sm">
+                  {response?.gameResponseCount === 0
+                    ? "Please Take Poll"
+                    : "Games You're Enrolled In"}
+                </div>
                 <ResponseListView list={response?.gameResponses} type="game" />
               </div>
             </Tab>
@@ -86,7 +90,7 @@ export default function ProfileView() {
               title={
                 <div className="flex items-center space-x-2">
                   <span>Practices</span>
-                  {response?.practiceResponseCount && (
+                  {response?.practiceResponseCount !== 0 && (
                     <Chip size="sm" variant="faded" color="warning">
                       {response?.practiceResponseCount}
                     </Chip>
@@ -95,7 +99,11 @@ export default function ProfileView() {
               }
             >
               <div className="flex flex-col gap-2">
-                <div className="text-sm">Practices You&#39;re Enrolled In</div>
+                <div className="text-sm">
+                  {response?.practiceResponseCount === 0
+                    ? "Please Take Poll"
+                    : "Practices You're Enrolled In"}
+                </div>
                 <ResponseListView
                   list={response?.practiceResponses}
                   type="practice"
