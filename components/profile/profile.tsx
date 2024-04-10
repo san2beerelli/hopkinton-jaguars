@@ -77,7 +77,7 @@ export default function ProfileView() {
               }
             >
               <div className="flex flex-col gap-2">
-                <div className="text-sm">Games You're Enrolled In</div>
+                <div className="text-sm">Games You&#39;re Enrolled In</div>
                 <ResponseListView list={response?.gameResponses} type="game" />
               </div>
             </Tab>
@@ -95,7 +95,7 @@ export default function ProfileView() {
               }
             >
               <div className="flex flex-col gap-2">
-                <div className="text-sm">Practices You're Enrolled In</div>
+                <div className="text-sm">Practices You&#39;re Enrolled In</div>
                 <ResponseListView
                   list={response?.practiceResponses}
                   type="practice"
