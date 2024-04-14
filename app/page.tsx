@@ -3,10 +3,10 @@
 "use client";
 import { makeGet } from "@/service/api";
 import { getFilteredResponse } from "@/util/dateUtil";
+import { getFormattedDate } from "@/util/otherUtil";
 import { Card, CardBody, Spinner } from "@nextui-org/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getFormattedDate } from "./practice/page";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);

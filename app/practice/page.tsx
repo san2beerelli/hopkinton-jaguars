@@ -3,7 +3,6 @@
 
 import { makeGet } from "@/service/api";
 import { useEffect, useState } from "react";
-import { parse, format } from "date-fns";
 import {
   Button,
   Card,
@@ -20,19 +19,7 @@ import {
 } from "@nextui-org/react";
 import { getFilteredResponse } from "@/util/dateUtil";
 import { useApplicaiton } from "@/context/ApplicationProvider";
-
-const currentYear = new Date().getFullYear();
-
-export const getFormattedDate = (inputDateStr: string) => {
-  const date = parse(
-    `${inputDateStr} ${currentYear}`,
-    "MM/dd yyyy",
-    new Date()
-  );
-
-  const formattedDate = format(date, "MMMM dd, yyyy");
-  return formattedDate;
-};
+import { getFormattedDate } from "@/util/otherUtil";
 
 const getPracticeKey = (item) => {
   return `${item?.Day}_${item?.Date}_${item?.Time}_${item?.Field}`;
