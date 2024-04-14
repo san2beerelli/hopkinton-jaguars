@@ -25,6 +25,10 @@ export const siteConfig = {
       href: "/practice",
     },
     {
+      label: "Ground",
+      href: "/ground",
+    },
+    /* {
       label: "Fantasy Score",
       href: "/fantasy",
     },
@@ -35,6 +39,6 @@ export const siteConfig = {
     {
       label: "Videos",
       href: "/videos",
-    },
+    }, */
   ],
 };

@@ -23,7 +23,7 @@ import { useApplicaiton } from "@/context/ApplicationProvider";
 
 const currentYear = new Date().getFullYear();
 
-const getFormattedDate = (inputDateStr: string) => {
+export const getFormattedDate = (inputDateStr: string) => {
   const date = parse(
     `${inputDateStr} ${currentYear}`,
     "MM/dd yyyy",
