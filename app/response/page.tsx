@@ -1,6 +1,5 @@
 // @ts-nocheck
 "use client";
-import { title } from "@/components/primitives";
 import { makeGet } from "@/service/api";
 import { getFilteredResponse } from "@/util/dateUtil";
 import {
@@ -159,31 +158,31 @@ export default function ResponsePage() {
                       <Spinner color="warning" />
                     ) : (
                       <>
-                        <div className="text-lg font-semibold">Available</div>
+                        <div className="text-small font-semibold">Available</div>
                         <div className="flex flex-col">
                           {filteredYes.map((name) => (
-                            <div className="text-lg font-thin" key={name}>
+                            <div className="text-small font-thin" key={name}>
                               {name}
                             </div>
                           ))}
                         </div>
                         <Divider />
-                        <div className="text-lg font-semibold">
+                        <div className="text-small font-semibold">
                           Not Available
                         </div>
 
                         <div className="flex flex-col">
                           {filteredNo.map((name) => (
-                            <div className="text-lg font-thin" key={name}>
+                            <div className="text-small font-thin" key={name}>
                               {name}
                             </div>
                           ))}
                         </div>
                         <Divider />
-                        <div className="text-lg font-semibold">No Response</div>
+                        <div className="text-small font-semibold">No Response</div>
                         <div className="flex flex-col">
                           {filteredNoResponse.map((name) => (
-                            <div className="text-lg font-thin" key={name}>
+                            <div className="text-small font-thin" key={name}>
                               {name}
                             </div>
                           ))}
